@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>BestChoice Server Platform Test</title>
+<script type="text/javascript" src="../../jquery/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../js/zWindow.js"></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+<div id="wrapper">
+	1234567890-=
+	
+	<input type="button" value="close1" onclick="myClose('lbs1');" />
+	<input type="button" value="close2" onclick="myClose('lbs2');" />
+	<input type="button" value="close3" onclick="myClose('lbs3');" />
+</div>
+
+<script>
+	
+	$(function(){
+			tsWindow('lbs1');
+			tsWindow('lbs2', false);
+			tsWindow('lbs3', false);
+	});
+
+	function myClose(did){
+		$.zWindow.close2(did);
+	}
+
+	function tsWindow(did, isMode){
+		$.fn.zWindow({
+			windowId: did,
+			top : 80,
+			width : 800,
+			height : 600,
+			titleable : true,
+			title : '选择用户__'+did,
+			moveable : true,
+			windowType : 'iframe',
+			windowSrc : 'http://www.baidu.com',
+			resizeable : true,
+			afterClose : function(data) {
+				
+			},
+			isMode : isMode?true:false
+		});
+	}
+	
+</script>
+
+</body>
+</html>
